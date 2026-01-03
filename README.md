@@ -1,5 +1,5 @@
 # Papirothèque Landing Page
-This is the landing page for my web :)
+This is the landing page for my web! :)
 
 <img width="1835" height="886" alt="image" src="https://github.com/user-attachments/assets/0d51f827-3b1b-4e8d-9dd4-217df53ffab5" />
 
