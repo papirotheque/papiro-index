@@ -1,0 +1,145 @@
+@font-face {
+    font-family: 'Portcullion-Bold';
+    src: url('../fonts/Portcullion.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Portcullion';
+    src: url('../fonts/Portcullion.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --bg-color: #f0ebe5;
+    --ink-color: #2b2b2b;
+    --accent-color: #8a3428;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--bg-color);
+    margin: 0;
+    overflow: hidden;
+    background-image: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.08) 100%);
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.04;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.papirotheque-svg {
+    filter: url(#ink-bleed);
+    max-width: 90vw;
+    max-height: 80vh;
+    overflow: visible;
+}
+
+.papirotheque-svg text {
+    stroke: none;
+    fill: var(--ink-color);
+    transition: fill 0.3s ease;
+}
+
+.papirotheque-svg tspan {
+    stroke: none;
+    fill: inherit;
+}
+
+.link-group {
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform-origin: center;
+    animation: intro-float 1.5s ease-out backwards;
+}
+
+.theque-group {
+    animation-delay: 0.2s;
+}
+
+.link-group:hover {
+    transform: scale(1.05) translateY(-10px);
+    z-index: 10;
+}
+
+.link-group:hover text {
+    fill: #111;
+}
+
+.label {
+    opacity: 1;
+    fill: var(--ink-color);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 180px;
+    letter-spacing: 20px;
+    pointer-events: auto;
+    clip-path: inset(0 0 0 0);
+    transition: opacity 0.3s ease;
+}
+
+.link-group:hover .label {
+    animation: none;
+    animation: typewriter 0.6s steps(15, end) forwards;
+    clip-path: inset(0 100% 0 0);
+}
+
+@keyframes typewriter {
+    to {
+        clip-path: inset(0 -20% 0 0);
+    }
+}
+
+@keyframes intro-float {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.svg-text {
+    font-family: 'Portcullion-Bold', 'Portcullion';
+    font-weight: 700;
+}
+
+.fs-288 {
+    font-size: 288px;
+}
+
+.fs-200 {
+    font-size: 200px;
+}
+
+.fs-1200 {
+    font-size: 1200px;
+}
+
+.hitbox {
+    fill: transparent;
+}
+
+@media (max-width: 1000px) {
+    .label {
+        font-size: 240px;
+        letter-spacing: 15px;
+    }
+}
